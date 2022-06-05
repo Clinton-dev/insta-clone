@@ -1,0 +1,19 @@
+{% extends "users/base.html"%}
+
+{% block content%}
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <h1 class="h3 mb-3 fw-normal">Sign up to see photos and videos from your friends.</h1>
+            {{ form.as_p }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-info text-white" type="submit">Sign up</button>
+        </div>
+    </form>
+    <div>
+        <small>
+             Have an account? <a href="#" class="ml-2">login</a>
+        </small>
+    </div>
+{% endblock content%}
