@@ -1,6 +1,9 @@
+import imp
 from django.shortcuts import render
+from .models import Picture
 
-posts = [
+"""
+    posts = [
     {
         "caption":"new cat video",
         "likes": "5",
@@ -15,7 +18,11 @@ posts = [
         "time_posted":"13hours",
         "author": "clint-dev"
     },
-]
+    ]
+"""
 
 def home(request):
-    return render(request,"posts/home.html", {"posts":posts})
+    context = {
+        "posts": Picture.objects.all()
+    }
+    return render(request,"posts/home.html", context)
