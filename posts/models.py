@@ -7,3 +7,6 @@ class Picture(models.Model):
     image = models.ImageField(null=False, blank=False)
     date_posted = models.DateTimeField(null=False, default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
