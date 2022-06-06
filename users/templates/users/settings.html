@@ -1,5 +1,23 @@
 {% extends "posts/base.html" %}
 
 {% block content %}
-<h2>{{user.username}} settings</h2>
+<div class="row g-0">
+    <div class="col-md-3 border p-1">
+        <h4>Edit settings</h4>
+    </div>
+    <div class="col-md-9">
+        <section class="border">
+            <div class="d-flex text-muted pt-3">
+                <img class="image-fluid rounded-circle account-img" src="{{user.profile.image.url}}" alt="{{user.username}} profile picture">
+                <div class="pb-3 mb-0 small lh-sm w-100">
+                  <div class="d-flex">
+                    <strong class="text-gray-dark">{{user.email}}</strong>
+                  </div>
+                  <span class="d-block">@{{user.username}}</span>
+                </div>
+              </div>
+
+        </section>
+    </div>
+</div>
 {% endblock %}
