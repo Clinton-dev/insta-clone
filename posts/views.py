@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 from .models import Picture
 
 def home(request):
@@ -16,3 +16,7 @@ class PictureListView(ListView):
 
 class PictureDetailView(DetailView):
     model= Picture
+
+class PictureCreateView(CreateView):
+    model= Picture
+    fields = ['name', 'image']
