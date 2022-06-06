@@ -3,19 +3,19 @@
 {% block content%}
     {% for post in posts%}
     <div class="card mb-3">
-        <div class="d-flex text-muted border-bottom">
+        <div class="d-flex text-muted border-bottom py-2">
             <!-- user metadata -->
-            <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+            <img class="image-fluid rounded-circle account-img-sidebar" src="{{post.author.profile.image.url}}" alt="{{post.author.username}} profile picture">
             <div class="pb-3 mb-0 small lh-sm w-100">
               <div class="d-flex">
-                <strong class="text-gray-dark">Full Name</strong>
+                <strong class="text-gray-dark">{{post.author.email}}</strong>
               </div>
-              <span class="d-block">@username</span>
+              <span class="d-block">@{{post.author.username}}</span>
             </div>
           </div>
-        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+        <img class=" image-fluid card-img-top post-image" src="{{post.image.url}}" alt="{{post.name}}">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <h5 class="card-title">{{post.name}}</h5>
           <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
