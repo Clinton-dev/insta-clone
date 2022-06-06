@@ -1,29 +1,23 @@
 {% extends "posts/base.html"%}
 
 {% block content%}
-    {% for post in posts%}
     <div class="card mb-3">
         <div class="d-flex text-muted border-bottom py-2">
             <!-- user metadata -->
-            <img class="image-fluid rounded-circle account-img-sidebar" src="{{post.author.profile.image.url}}" alt="{{post.author.username}} profile picture">
+            <img class="image-fluid rounded-circle account-img-sidebar" src="{{object.author.profile.image.url}}" alt="{{objects.author.username}} profile picture">
             <div class="pb-3 mb-0 small lh-sm w-100">
               <div class="d-flex">
-                <strong class="text-gray-dark">{{post.author.email}}</strong>
+                <strong class="text-gray-dark">{{object.author.email}}</strong>
               </div>
-              <span class="d-block">@{{post.author.username}}</span>
+              <span class="d-block">@{{object.author.username}}</span>
             </div>
           </div>
-          <a href="{% url 'post-detail' post.id %}">
-            <img class=" image-fluid card-img-top post-image" src="{{post.image.url}}" alt="{{post.name}}">
-          </a>
+        <img class=" image-fluid card-img-top post-image" src="{{object.image.url}}" alt="{{object.name}}">
         <div class="card-body">
-          <h5 class="card-title">{{post.name}}</h5>
+          <h5 class="card-title">{{object.name}}</h5>
           <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
       </div>
-    {% empty %}
-        <h3>NO posts yet! Be the first to add one</h3>
-    {% endfor %}
 {% endblock content%}
 
