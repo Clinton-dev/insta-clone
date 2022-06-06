@@ -20,3 +20,7 @@ class PictureDetailView(DetailView):
 class PictureCreateView(CreateView):
     model= Picture
     fields = ['name', 'image']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
