@@ -10,6 +10,18 @@ def home(request):
     }
     return render(request,"posts/home.html", context)
 
+def search_post(request):
+    query = request.GET.get('query')
+    if query != None:
+        posts = Picture.objects.filter(name__contains=query)
+
+    context = {
+        'posts': posts,
+        'title':'search posts'
+    }
+
+    return render(request, 'posts/search.html', context)
+
 class PictureListView(ListView):
     model= Picture
     template_name='posts/home.html' #<app-name>/<model>_<view-type>.html

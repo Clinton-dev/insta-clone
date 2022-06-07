@@ -1,0 +1,23 @@
+{% extends "posts/base.html" %}
+
+{% block content %}
+<div class="row">
+    <h2 class="border-bottom">SEARCH PAGE</h2>
+    {% for post in posts%}
+    <div class="col-md-6">
+        <div class="card mb-3">
+            <a href="{% url 'post-detail' post.id %}">
+                <img class=" image-fluid card-img-top post-image" src="{{post.image.url}}" alt="{{post.name}}">
+            </a>
+            <div class="card-body">
+            <h5 class="card-title">{{post.name}}</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+        <h3>User has no posts yet!</h3>
+{% endfor %}
+</div>
+{% endblock content %}
