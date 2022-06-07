@@ -15,3 +15,8 @@
 .post-image {
     height: 400px;
 }
+
+.blog-btn-action {
+    width: 15vw;
+    margin: 0 auto;
+}
