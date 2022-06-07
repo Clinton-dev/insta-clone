@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'crispy_bootstrap5',
+    'cloudinary'
 ]
 
 MIDDLEWARE = [
@@ -118,6 +122,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
+cloudinary.config(
+  cloud_name = "dvl4nuabl",
+  api_key = "159279624298128",
+  api_secret = "ro1XCQ-IPIVOe4PwKN1lz1nwf6w",
+  secure = True
+)
 
 STATIC_URL = 'static/'
 

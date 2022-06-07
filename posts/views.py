@@ -22,7 +22,7 @@ def search_post(request):
 
     return render(request, 'posts/search.html', context)
 
-class PictureListView(ListView):
+class PictureListView(LoginRequiredMixin, ListView):
     model= Picture
     template_name='posts/home.html' #<app-name>/<model>_<view-type>.html
     context_object_name='posts'
