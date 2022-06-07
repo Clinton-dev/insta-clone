@@ -8,9 +8,11 @@
             <img class="image-fluid rounded-circle account-img-sidebar" src="{{post.author.profile.image.url}}" alt="{{post.author.username}} profile picture">
             <div class="pb-3 mb-0 small lh-sm w-100">
               <div class="d-flex">
-                <strong class="text-gray-dark">{{post.author.email}}</strong>
+                <a href="{% url 'user-posts' post.author.username%}">
+                  <strong class="text-gray-dark"> @{{post.author.username}}</strong>
+                </a>
               </div>
-              <span class="d-block">@{{post.author.username}}</span>
+              <span class="d-block">{{post.author.email}}</span>
             </div>
           </div>
           <a href="{% url 'post-detail' post.id %}">
