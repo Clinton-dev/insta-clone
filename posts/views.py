@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from .models import Picture
 
 def home(request):
@@ -17,7 +18,15 @@ class PictureListView(ListView):
 class PictureDetailView(DetailView):
     model= Picture
 
-class PictureCreateView(CreateView):
+class PictureCreateView(LoginRequiredMixin,CreateView):
+    model= Picture
+    fields = ['name', 'image']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+class PictureUpdateView(LoginRequiredMixin, UpdateView):
     model= Picture
     fields = ['name', 'image']
 
