@@ -1,5 +1,5 @@
 # Insta-clone
-A personal gallery application that you can display your photos for others to see. Users can:
+A clone of the popular photo app [Instagram](https://www.instagram.com/?hl=en). The users can:
 
 1. Sign in to the application to start using.
 2. Upload my post to the application.
