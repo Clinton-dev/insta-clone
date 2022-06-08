@@ -33,8 +33,8 @@ Run test using the following command
 
 
 ```
-python manage.py posts test
-python manage.py users test
+ ./manage.py test posts
+ ./manage.py test posts
 ```
 
 ## Deployment
