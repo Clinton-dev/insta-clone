@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - echo Installing dependencies...
+      - pip install --upgrade pip
+      - pip install -r requirements.txt
+  build:
+    commands:
+      - echo Running database migrations...
+      - python manage.py migrate
+      - echo Running unit tests...
+      - python manage.py test
+  post_build:
+    commands:
+      - echo Build completed successfully!
+      - echo Running additional tasks...
+      # Add any additional tasks or commands here
+
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: no
